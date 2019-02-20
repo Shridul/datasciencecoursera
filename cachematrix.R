@@ -11,9 +11,9 @@ set<-function(y){
 }
 get<-function()x  ##returns ther value of the matrix
 
-setinv<-function(inverse) inv<<-inverse
-getinv<-function() inv
-list(set=set,get=get,setinv=setinv,getinv=getinv)
+setinv<-function(inverse) inv<<-inverse ##assigns value of inv in parent environment
+getinv<-function() inv ##gets the value of inv where called
+list(set=set,get=get,setinv=setinv,getinv=getinv)##to create a list to refer them
 
 }
 
@@ -23,6 +23,7 @@ list(set=set,get=get,setinv=setinv,getinv=getinv)
 ## if the inverse is already calculated & matrix hasn't changed then cacheSolve
 ## will retrieve the inverse
 cacheSolve <- function(x, ...) {
+     ## return a matrix that is inverse of 'x'
      inv<-x$getinv()
     if(!is.null(inv)){
         message("getting cached data")
